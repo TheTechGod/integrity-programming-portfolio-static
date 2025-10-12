@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrity Programming – Geoff Metzger</title>
+
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="css/swag.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Integrity Programming</a>
+
+            <!--Toggler for mobile collapse-->
+            <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible nav links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <!--
+            Each nav link jumps to a section id.
+            We'll also add JS to smooth scroll and auto-close the mobile menu.
+          -->
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--
+    STEP 5: Top anchor spacer
+    - Because the navbar is fixed, content would hide behind it
+    - This 1px element marks the top of the page (#home) with a scroll offset handled in CSS
+  -->
+  <div id="home" class="nav-spacer" aria-hidden="true"></div>
+
+  <!--
+    STEP 6: About Section
+    - Use Bootstrap spacing utilities and your own classes as needed
+  -->
+  <section id="about" class="py-5 bg-light text-center">
+    <div class="container">
+      <h2>About Me</h2>
+      <p class="lead">
+        Hi, I’m Geoff Metzger. I build educational platforms, freelance automation tools, and clean web apps
+        under the Integrity Programming brand. Everything I create is rooted in purpose and real-world impact.
+      </p>
+    </div>
+  </section>
+
+  <!--
+    STEP 7: Projects Section
+    - Bootstrap grid with 3 cards
+    - SHANDA uses a local image (put your image at /img/shandaApp.png)
+    - Others use placeholders until you add real screenshots
+  -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Projects</h2>
+
+      <div class="row g-4">
+        <!-- Project: SHANDA -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm project-card">
+            <!-- Local image: place file at /img/shandaApp.png -->
+            <img src="img/shandaApp.png" class="card-img-top" alt="SHANDA app screenshot" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">SHANDA App</h5>
+              <p class="card-text">
+                AI-powered academic support for underserved students. Built with .NET Core, EF, and JavaScript.
+              </p>
+              <div class="mt-auto">
+                <a href="https://github.com/TheTechGod/ShandaApp" target="_blank" rel="noopener" class="btn btn-primary">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project: Blog CMS (placeholder image for now) -->
+        <!--<div class="col-md-4">
+          <div class="card h-100 shadow-sm project-card">
+            <img src="https://placehold.co/600x400?text=Blog+CMS" class="card-img-top" alt="Blog CMS placeholder" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Blog CMS</h5>
+              <p class="card-text">
+                CRUD blog admin with S3 image uploads. Clean authoring workflow and role-based access.
+              </p>
+              <div class="mt-auto">
+                <a href="#" class="btn btn-primary">Case Study</a>
+              </div>
+            </div>
+          </div>
+        </div>-->
+
+        <!-- Project: AWS Microsites (placeholder image for now) -->
+        <!--<div class="col-md-4">
+          <div class="card h-100 shadow-sm project-card">
+            <img src="https://placehold.co/600x400?text=AWS+Microsites" class="card-img-top" alt="AWS Microsites placeholder" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">AWS Microsites</h5>
+              <p class="card-text">
+                Presigned URL demo + Serverless TODO mock using API Gateway &amp; Lambda.
+              </p>
+              <div class="mt-auto">
+                <a href="#" class="btn btn-primary">Case Study</a>
+              </div>
+            </div>
+          </div>
+        </div>-->
+      </div><!-- /row -->
+    </div>
+  </section>
+
+  <!-- STEP 8: Skills -->
+  <section id="skills" class="py-5 bg-light text-center">
+    <div class="container">
+      <h2>Skills</h2>
+      <p>HTML • CSS • JavaScript • C# • .NET Core • SQL • Entity Framework • Bootstrap • AWS • Git</p>
+    </div>
+  </section>
+
+  <!-- STEP 9: Resume -->
+  <section id="resume" class="py-5 text-center">
+    <div class="container">
+      <h2>Resume</h2>
+      <!--
+        If you don’t have a resume yet, keep the "coming soon" text.
+        When ready, put your resume at /resume.pdf and uncomment the button below.
+      -->
+      <p class="text-muted mb-0">Resume coming soon</p>
+      <!--
+      <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-outline-dark mt-3">
+        Download PDF
+      </a>
+      -->
+    </div>
+  </section>
+
+  <!-- STEP 10: Contact -->
+  <section id="contact" class="py-5 bg-light text-center">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:gmetzger1911@gmail.com">gmetzger1911@gmail.com</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- STEP 11: Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+      &copy; 2025 Geoff Metzger | Integrity Programming
+    </div>
+  </footer>
+
+  <!--
+    STEP 12: Bootstrap JS bundle (enables mobile nav collapse)
+    - Loaded before your custom script is fine—your script only runs after DOM is ready.
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+
+  <!-- STEP 13: Your site JS -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+/*
+  STEP A: Base CSS and layout helpers
+  - We define a --nav-height so we can offset content under a fixed navbar
+*/
+:root {
+  --nav-height: 64px; /* Adjust if your navbar is taller/shorter */
+}
+
+/* Basic element reset/helpers */
+* { box-sizing: border-box; }
+
+body {
+  font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  color: #212529;
+  background-color: #f8f9fa;
+
+  /* STEP B: Push body content below the fixed navbar */
+  padding-top: var(--nav-height);
+}
+
+#home {
+    padding-top: 25px;
+}
+
+/* Headings spacing */
+h2 {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* STEP C: Anchor targets should align nicely under fixed nav */
+.nav-spacer {
+  height: 1px;                              /* Minimal element for #home anchor */
+  margin-top: calc(var(--nav-height) * -1);  /* Pull it up so #home aligns at top */
+  scroll-margin-top: var(--nav-height);      /* Scroll offset when using scrollIntoView or #links */
+}
+
+/* Additionally, every section gets some offset so anchors don't hide under the nav */
+section {
+  scroll-margin-top: calc(var(--nav-height) + 12px);
+}
+
+/* STEP D: Cards styling (subtle hover) */
+.project-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: none;
+  border-radius: 12px;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+/* Buttons (primary color tweak if you want a brand color) */
+.btn-primary {
+  background-color: #004080;
+  border-color: #004080;
+}
+.btn-primary:hover {
+  background-color: #003366;
+  border-color: #003366;
+}
+
+/* Footer styling */
+footer {
+  background-color: #212529;
+  color: white;
+  padding: 20px 0;
+}
+
+/* STEP E: Smooth scrolling (CSS-only; JS adds collapse behavior) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mobile spacing tweaks */
+@media (max-width: 768px) {
+  .project-card { margin-bottom: 16px; }
+}
