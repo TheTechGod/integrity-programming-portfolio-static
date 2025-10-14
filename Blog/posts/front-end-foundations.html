@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Front-End Foundations — Coffee + Kids + Code</title>
+  <meta name="description" content="How I built the Coffee + Kids + Code front end with HTML, CSS, and JS, and how it will grow into a full-stack app." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <header class="mini-header">
+    <a class="home-link" href="../index.html">← Coffee + Kids + Code</a>
+  </header>
+
+  <main class="container">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">Front-End Foundations</h1>
+        <p class="post-meta">#DevBlog · Oct 11, 2025</p>
+      </header>
+
+      <section class="post-body">
+        <p>This is the build log for how I took the idea from Part 1 and turned it into a working front end. Simple stack. Clean structure. No fluff. The goal is a site that looks good now and upgrades cleanly to full stack later.</p>
+
+        <h3>1) Outcomes first</h3>
+        <ul>
+          <li>Hero banner with split tone. Brand + tagline.</li>
+          <li>Sticky navbar with categories that feel obvious.</li>
+          <li>Category pages with clickable post cards.</li>
+          <li>Individual post pages that read well on phone and desktop.</li>
+          <li>Footer that actually stays at the bottom.</li>
+        </ul>
+
+        <h3>2) Folder structure</h3>
+        <pre class="code">/coffee-kids-code
+  /css/styles.css
+  /js/quotes.js
+  /images/{coffee.jpg,kids.jpg,code.jpg}
+  /posts/{building-with-purpose.html, front-end-foundations.html, dailyStart.html}
+  index.html
+  devblog.html
+  singledadlife.html
+  politics.html
+  general.html</pre>
+
+        <h3>3) Base HTML scaffold</h3>
+        <p>Each page shares the same head block for fonts and styles. The body is split into <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, and a sticky footer. Reuse wins.</p>
+
+        <h3>4) Design system in CSS (variables + spacing)</h3>
+        <p>I set color tokens and spacing in <code>:root</code> and kept components small and reusable.</p>
+        <pre class="code">:root{
+  --bg-light:#F4EDE4; --bg-dark:#1E1E1E;
+  --text:#2B2B2B; --mint:#A6E3A1; --amber:#D8A35D;
+  --radius:16px; --space:clamp(12px,2vw,20px);
+}</pre>
+        <p>Cards, grid, navbar, and the split hero sit on top of this. It keeps the look consistent and makes theming easy later.</p>
+
+        <h3>5) Components I shipped</h3>
+        <ul>
+          <li><strong>Hero</strong>: split light/dark background, brand text, tagline “Debugging life, one coffee at a time.”</li>
+          <li><strong>Navbar</strong>: rounded pills, active state, sticky.</li>
+          <li><strong>About + Visual Trio</strong>: short bio plus three cards for Coffee, Kids, Code.</li>
+          <li><strong>Quote block</strong>: centered card that now rotates with JS.</li>
+          <li><strong>Post cards</strong>: title, date, blurb, full-card link.</li>
+          <li><strong>Post page</strong>: readable line length, tags, back links.</li>
+        </ul>
+
+        <h3>6) Light JavaScript to keep it interesting</h3>
+        <p>The site is still static, but a tiny script rotates quotes on load. Later I’ll let JS auto-render the latest posts from JSON.</p>
+        <pre class="code">document.addEventListener("DOMContentLoaded", () =&gt; {
+  const quotes = [
+    { text: "Integrity is doing the right thing, even when no one is watching.", author: "C.S. Lewis" },
+    { text: "The function of good software is to make the complex appear simple.", author: "Grady Booch" }
+  ];
+  const q = quotes[Math.floor(Math.random()*quotes.length)];
+  document.getElementById("quote-text").textContent = `“${q.text}”`;
+  document.getElementById("quote-author").textContent = `— ${q.author}`;
+});</pre>
+
+        <h3>7) Accessibility and performance checks</h3>
+        <ul>
+          <li>Semantic tags: header, nav, main, footer, article, section.</li>
+          <li>Alt text for images. Good contrast on dark side of hero.</li>
+          <li>Mobile first CSS. No layout shifts on load.</li>
+          <li>One font request. No heavy frameworks.</li>
+        </ul>
+
+        <h3>8) Deploy path today</h3>
+        <p>Dev in GitHub. Auto-deploy on Vercel. Zero build step for now. When I push, the site goes live. Done.</p>
+
+        <hr>
+
+        <h3>Upgrade plan: to full stack without burning cash</h3>
+
+        <h4>A) Dynamic content without a backend (bridge step)</h4>
+<p>
+  <strong>Quick context:</strong> JSON (JavaScript Object Notation) is a simple text format used to store and share data — basically, a 
+  lightweight database in a single file. It’s perfect for early projects because the front end can read it directly with JavaScript, 
+  no server required. Think of it as a dry run for when the API comes online later.
+</p>
+
+<ol>
+  <li>
+    Create <code>posts.json</code> with title, date, category, slug.<br>
+    <em>→ Why:</em> This acts like a lightweight database before we introduce a real one. It lets us test dynamic loading and card rendering logic 
+    without needing a backend or deployment changes.
+  </li>
+  <li>
+    Use a small JS loader on category pages to render cards from JSON.<br>
+    <em>→ Why:</em> By reading from a static JSON file, we simulate an API call and structure our pages the same way we will later when the backend exists. 
+    It’s practice for fetch-based rendering, error handling, and modular JS organization.
+  </li>
+  <li>
+    Keep writing posts as HTML while I test the flow.<br>
+    <em>→ Why:</em> Staying with static HTML means I can keep the site visually active while I experiment with structure. 
+    The user experience doesn’t break even while the architecture evolves underneath.
+  </li>
+</ol>
+
+
+<h4>B) Real API</h4>
+<p>
+  <strong>Quick context:</strong> An API (Application Programming Interface) is what lets the front end and back end talk to each other. 
+  Instead of hardcoding content, the site will make requests (like “get all posts” or “fetch one post by ID”) and get structured data back in JSON format. 
+  That data powers what users see — same logic, just delivered dynamically.
+</p>
+
+<ol>
+  <li>
+    <strong>API stack:</strong> Node + Express (or Fastify) with a simple posts router.<br>
+    <em>→ Why:</em> Express is lightweight, predictable, and well-documented. It’s ideal for small personal APIs. 
+    If traffic grows, we can switch to Fastify later for performance.
+  </li>
+  <li>
+    <strong>Data:</strong> start with a JSON file, move to Postgres when ready.<br>
+    <em>→ Why:</em> JSON keeps iteration fast and error-free early on. 
+    When we add features like search or filtering, Postgres gives better querying and reliability without major code rewrites.
+  </li>
+  <li>
+    <strong>Auth (admin only):</strong> sessions or JWT, rate limit, CORS locked down.<br>
+    <em>→ Why:</em> Even a personal project needs guardrails. 
+    Using JWTs or sessions keeps the admin routes secure and prepares the code for future scaling or public APIs.
+  </li>
+  <li>
+    <strong>Admin UI:</strong> a basic form to create/edit posts in Markdown.<br>
+    <em>→ Why:</em> Markdown provides simple formatting without needing a WYSIWYG editor. 
+    It’s faster to store, safer, and easy to convert to HTML on render.
+  </li>
+</ol>
+
+
+<h4>C) AWS on a budget</h4>
+
+<p>
+  <strong>Quick context:</strong> AWS is overkill for hobby projects if you use it wrong—but a superpower if you plan it right. 
+  The goal here isn’t to build an enterprise setup; it’s to learn real cloud workflows without blowing up a credit card. 
+  Each service choice below balances control, scalability, and cost so I can deploy a full-stack app that looks professional, 
+  runs reliably, and still fits a single-dev budget.
+</p>
+
+<ul>
+  <li>
+    <strong>Front end:</strong> stay on Vercel or move to S3 + CloudFront later.<br>
+    <em>→ Why:</em> Vercel handles static front ends perfectly for free, but S3 + CloudFront gives full control and scales better when tied to other AWS resources.
+  </li>
+  <li>
+    <strong>API hosting:</strong> AWS Lightsail instance (small plan), or a tiny Fargate service if I want containers.<br>
+    <em>→ Why:</em> Lightsail is predictable pricing—$5/month for a small VM—and includes SSH, monitoring, and snapshots. Fargate is great for scaling but only worth it when traffic demands containers.
+  </li>
+  <li>
+    <strong>Database:</strong> Lightsail Managed Database or RDS Postgres (use free tier sensibly). For super cheap, start with a single-node Lightsail DB.<br>
+    <em>→ Why:</em> Both are fully managed, saving maintenance time. Starting small means I can scale up when traffic or data actually requires it instead of paying for idle capacity.
+  </li>
+  <li>
+    <strong>Secrets:</strong> AWS Secrets Manager for DB creds and JWT secret.<br>
+    <em>→ Why:</em> Never hardcode credentials. Secrets Manager handles rotation and encryption automatically, keeping deployments secure without cluttering .env files.
+  </li>
+  <li>
+    <strong>Domain:</strong> Route 53, A/AAAA records to Vercel or CloudFront; CNAME for <code>api.</code> to the backend.<br>
+    <em>→ Why:</em> This makes your setup professional and scalable. Separating front-end and API subdomains lets us swap or upgrade services independently later.
+  </li>
+</ul>
+
+<h4>D) CI/CD</h4>
+
+<p>
+  <strong>Quick context:</strong> CI/CD stands for Continuous Integration and Continuous Deployment. 
+  It’s the process of automatically testing, building, and deploying code every time you push changes. 
+  For solo developers, it’s less about fancy pipelines and more about consistency—removing human error and 
+  making sure new code goes live cleanly every single time. Think of it as version control with a motor attached.
+</p>
+
+<ul>
+  <li>
+    GitHub Actions builds and deploys API to Lightsail on push to <code>main</code>.<br>
+    <em>→ Why:</em> It automates deployments and removes human error. One push, one deploy. No manual SSH or FTP ever again.
+  </li>
+  <li>
+    Front end stays auto-deployed by Vercel on push.<br>
+    <em>→ Why:</em> Vercel’s continuous deployment keeps the site live and synced with every GitHub change. It’s zero-configuration CI/CD, which saves time for actual development.
+  </li>
+</ul>
+
+
+        <h4>E) Rough monthly cost</h4>
+
+        <p>
+            <strong>Quick context:</strong> One of the main goals here is proving you can run a legit full-stack setup without enterprise pricing. 
+            A lot of devs think cloud hosting automatically means expensive bills—but if you choose intentionally and scale gradually, you can stay 
+            under $20 a month while running a production-ready system.
+            Here’s the breakdown of what that looks like for Coffee + Kids + Code:
+        </p>
+
+        <ul>
+          <li>Vercel free for front end.</li>
+          <li>Lightsail instance for API: ~$5.</li>
+          <li>Lightsail Postgres small: ~$15 (or start with file store and upgrade later).</li>
+          <li>Route 53 domain: ~$12/yr.</li>
+          <li>Total starting point: about $5 to $20 per month depending on DB choice.</li>
+        </ul>
+
+        <hr>
+
+        <h3>Checklist to ship the upgrade</h3>
+
+        <p>
+  <strong>Quick context:</strong> This isn’t a wish list—it’s the execution roadmap. 
+  Everything up to this point has been planning and architecture. 
+  This list is where concept meets code: the small, focused steps that turn a static site into a living full-stack system. 
+  No shortcuts, no frameworks doing the heavy lifting—just deliberate progress.
+</p>
+
+        <ul>
+          <li>[ ] Create <code>posts.json</code> and a JS loader for category pages.</li>
+          <li>[ ] Stand up a minimal Express API with a <code>/posts</code> route.</li>
+          <li>[ ] Move post content to Markdown; render on the server.</li>
+          <li>[ ] Add admin auth and a basic post editor.</li>
+          <li>[ ] Provision Lightsail, point <code>api.yourdomain</code>, add HTTPS.</li>
+          <li>[ ] Wire GitHub Actions for push-to-deploy.</li>
+        </ul>
+
+        <p>I could have pulled in a framework and called it a day, but that’s not the point. I know I can build it. The exercise here is discipline and clarity. Start simple. Make it clean. Scale when it earns it.</p>
+      </section>
+
+      <footer class="post-footer">
+        <p class="tags">
+          <span>#DevBlog</span>
+          <span>#FrontEnd</span>
+          <span>#AWS</span>
+        </p>
+        <nav class="post-nav">
+          <a href="../devblog.html">← Back to #DevBlog</a>
+          <a href="../index.html" class="next">Home →</a>
+        </nav>
+      </footer>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Geoffrey D. Metzger · Powered by Integrity Programming</p>
+  </footer>
+</body>
+</html>
