@@ -15,9 +15,14 @@ body {
   margin: 0;
   color: #212529;
   background-color: #f8f9fa;
-
+  flex-direction: column;
+  min-height: 100vh; 
   /* STEP B: Push body content below the fixed navbar */
   padding-top: var(--nav-height);
+}
+
+main, .content-wrapper {
+  flex: 1;
 }
 
 #home {
@@ -39,7 +44,7 @@ h2 {
 
 /* Additionally, every section gets some offset so anchors don't hide under the nav */
 section {
-  scroll-margin-top: calc(var(--nav-height) + 12px);
+  scroll-margin-top: 70px; /* A bit more than nav height for better spacing */
 }
 
 /* STEP D: Cards styling (subtle hover) */
@@ -65,8 +70,7 @@ section {
 
 /* Footer styling */
 footer {
-  background-color: #212529;
-  color: white;
+  margin-top: auto;
   padding: 20px 0;
 }
 
@@ -78,4 +82,113 @@ html {
 /* Mobile spacing tweaks */
 @media (max-width: 768px) {
   .project-card { margin-bottom: 16px; }
+}
+
+/* Section background */
+.grey-background {
+    background-color: lightgray !important; /* A slightly cooler, modern grey */
+    width: 100%;
+}
+
+/* Custom Vertical Padding */
+.py-custom {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Ensure bg-light covers everything edge-to-edge */
+.bg-light {
+    
+}
+
+.bg-white {
+    background-color: #ffffff !important;
+    width: 100%;
+}
+
+/* Container for the horizontal scroll */
+.project-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px 5px 25px 5px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #0d6efd #f8f9fa;
+}
+
+/* Custom card styling */
+.project-card-custom {
+    flex: 0 0 350px; /* Fixed width for cards */
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.project-card-custom:hover {
+    transform: translateY(-5px);
+}
+
+.project-card-custom img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-links {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+}
+
+/* Scrollbar styling for Chrome/Safari */
+.project-scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+.project-scroll-container::-webkit-scrollbar-thumb {
+    background: #0d6efd;
+    border-radius: 10px;
+}
+
+/* Placeholder card styling */
+.placeholder-card {
+    border: 2px dashed #ccc;
+    background: #fdfdfd;
+    color: #999;
+}
+
+.category-title {
+    font-weight: 700;
+    color: #212529;
+}
+
+.placeholder-card {
+    border: 2px dashed #adb5bd;
+    background-color: #fdfdfd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+}
+
+.placeholder-card h5 {
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* IP Logo*/
+.tracking-widest {
+    letter-spacing: 0.2em;
+    margin-top: -5px;
 }

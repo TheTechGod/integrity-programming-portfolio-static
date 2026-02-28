@@ -33,6 +33,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <!--<li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>-->
           <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
           <!--<li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>-->
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -41,114 +42,178 @@
     </div>
   </nav>
 
-  <div id="home" class="nav-spacer" aria-hidden="true"></div>
+  <main>
+    <div id="home" class="nav-spacer" aria-hidden="true"></div>
 
   <!-- About -->
-  <section id="about" class="py-5 bg-light text-center">
+  <section id="about" class="py-5 bg-light text-center grey-background py-custom">
     <div class="container">
-      <h2>About Me</h2>
-      <p class="lead">
-        Hi, I’m Geoff Metzger, a full-stack developer and founder of Integrity Programming. 
-        I create educational software, community-driven tools, and automation systems that combine 
-        technical precision with social impact. My work blends front-end design, back-end engineering, 
-        and a mission to make technology more accessible.
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-10 text-center">
+          <div class="mb-4">
+            <span class="display-4 text-primary fw-bold">IP</span>
+            <div class="text-uppercase tracking-widest small fw-semibold text-muted">Integrity Programming</div>
+          </div>
+
+          <h2 class="fw-bold mb-4">Engineering with a Purpose</h2>
+
+          <p class="lead mb-5 px-md-5">
+          "I bridge the gap between <strong>complex software engineering</strong> and 
+          <strong>accessible community impact</strong>, ensuring that high-level technology 
+          serves the people who need it most."
+          </p>
+
+          <div class="row g-4 text-start justify-content-center">
+          <div class="col-md-5">
+            <h5 class="fw-bold text-primary">The Technical Foundation</h5>
+            <p class="small text-secondary">
+              Holding a <strong>Masters in CS</strong>, I specialize in building robust, scalable systems using .NET Core, SQL, and modern JavaScript frameworks.
+            </p>
+          </div>
+          <div class="col-md-5">
+            <h5 class="fw-bold text-primary">The Social Mission</h5>
+            <p class="small text-secondary">
+              Through <strong>Integrity Programming</strong>, I focus on educational platforms and community resources that prioritize social consciousness over pure profit.
+            </p>
+          </div>
+
+        </div>
+      
+        <div class="text-start mx-auto" style="max-width: 500px;">
+           <div class="row g-4 text-start justify-content-center mt-2">
+  <div class="col-md-5">
+    <div class="p-3 border-start border-primary border-3">
+      <h5 class="fw-bold text-primary">Full-Stack Expert</h5>
+      <p class="text-secondary small mb-0">
+        Holding a <strong>Masters in CS</strong>, I specialize in building robust, scalable systems with a focus on .NET Core, SQL, and Python.
       </p>
     </div>
-  </section>
+  </div>
+
+  <div class="col-md-5">
+    <div class="p-3 border-start border-primary border-3">
+      <h5 class="fw-bold text-primary">Community Focused</h5>
+      <p class="text-secondary small mb-0">
+        Founder of <strong>Integrity Programming</strong>, dedicated to creating accessible tools for education and local aid.
+      </p>
+    </div>
+  </div>
+</div>
+        </div>
+    </div>
+  </div>
+</div>
+</section>
 
   <!-- Projects -->
-  <section id="projects" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Projects</h2>
-      <div class="row g-4">
-        
-        <!-- Open Doors Academy -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm project-card">
-            <img src="img/OpenDoorAcademy.png" class="card-img-top" alt="Open Door Academy Screenshot" loading="lazy" />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Open Doors Academy</h5>
-              <p class="card-text">
-                Educational platform in development for underserved students.
-                Currently focused on math flashcards, quizzes, and progress
-                tracking — built with HTML, CSS, JavaScript, and .NET Core.
-              </p>
-              <div class="mt-auto">
-                <a href="https://github.com/TheTechGod/ShandaApp" target="_blank" rel="noopener" class="btn btn-primary">
-                  GitHub
-                </a>
-              </div>
+  <section id="projects" class="py-5 text-center py-custom">
+  <div class="container text-center">
+    <h2 class="text-center mb-5">Projects</h2>
+
+    <div class="project-row-wrapper mb-5">
+      <h3 class="category-title">Full-Stack Systems & Complex Data</h3>
+      <p class="text-muted mb-3">Robust applications focused on logic, database management, and architecture.</p>
+      <div class="project-scroll-container justify-content-center">
+        <div class="project-card-custom shadow-sm">
+          <img src="img/OpenDoorAcademy.png" alt="Open Door Academy">
+          <div class="card-content">
+            <h5>Open Doors Academy</h5>
+            <p>Educational platform for underserved students. Built with .NET Core & SQL.</p>
+            <div class="card-links">
+              <a href="https://github.com/TheTechGod/ShandaApp" target="_blank" class="btn btn-sm btn-primary">GitHub</a>
             </div>
           </div>
         </div>
-
-        <!-- Personal Blog -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm project-card">
-            <img src="img/CKC.png" class="card-img-top" alt="Blog CMS placeholder" loading="lazy" />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Personal Blog</h5>
-              <p class="card-text">
-                Responsive front-end blog site built with HTML, CSS, and Bootstrap.
-                Features article cards, category filters, and a clean mobile-friendly layout.
-              </p>
-              <div class="mt-auto">
-                <a href="https://coffee-kids-code.vercel.app/index.html" target="_blank" rel="noopener" class="btn btn-primary">Live App</a>
-                <a href="https://github.com/TheTechGod/CoffeeKidsAndCode" target="_blank" rel="noopener" class="btn btn-primary">GitHub</a>
-              </div>
-            </div>
+        <!--<div class="project-card-custom shadow-sm placeholder-card">
+          <div class="card-content text-center">
+            <h5 class="mt-4">Upcoming: Private AI Assistant</h5>
+            <p>Personalized AI-driven assistant & business automation tool. (In Development)</p>
           </div>
-        </div>
-
-        <!-- AWS CPC Quiz Trainer -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm project-card">
-            <img src="img/certQuizApp.png" class="card-img-top" alt="AWS CPC Quiz Trainer Screenshot" loading="lazy" />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">AWS CPC Quiz Trainer</h5>
-              <p class="card-text">
-                Interactive browser-based quiz app for AWS Certified Cloud Practitioner prep.
-                Tracks timing, domain stats, and scoring.
-                Built with pure HTML, CSS, and JavaScript and deployed on Vercel.
-              </p>
-              <div class="mt-auto">
-                <a href="https://aws-cpc-quiz-trainer.vercel.app/" target="_blank" class="btn btn-primary">Live App</a>
-                <a href="https://github.com/TheTechGod/aws-cpc-quiz-trainer" target="_blank" class="btn btn-primary">GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Community Aid Hub -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm project-card">
-            <img src="img/ComunityRelief.png" class="card-img-top" alt="Community Aid Hub Screenshot" loading="lazy" />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Community Aid Hub</h5>
-              <p class="card-text">
-                A Chicago-focused resource directory providing food pantries, utility assistance, and community programs. 
-                Built with HTML, CSS, JavaScript, and JSON data integration — created to help families navigate aid more easily.
-              </p>
-              <div class="mt-auto">
-                <a href="https://community-aid-hub.vercel.app/" target="_blank" class="btn btn-primary">Live App</a>
-                <a href="https://github.com/TheTechGod/community-aid-hub" target="_blank" class="btn btn-primary">GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /row -->
+        </div>-->
+      </div>
     </div>
-  </section>
 
-  <!-- Skills -->
-  <section id="skills" class="py-5 bg-light text-center">
+    <div class="project-row-wrapper mb-5">
+      <h3 class="category-title">Marketing, Emails & Professional Landing Pages</h3>
+      <p class="text-muted mb-3">High-conversion designs, responsive layouts, and professional brand identity.</p>
+      <div class="project-scroll-container justify-content-center">
+        <div class="project-card-custom shadow-sm">
+          <img src="img/CKC.png" alt="Personal Blog">
+          <div class="card-content">
+            <h5>Personal Blog</h5>
+            <p>Responsive CMS-style blog built with Bootstrap and clean mobile-first UI.</p>
+            <div class="card-links">
+              <a href="https://coffee-kids-code.vercel.app/index.html" target="_blank" class="btn btn-sm btn-primary">Live</a>
+              <a href="https://github.com/TheTechGod/CoffeeKidsAndCode" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card-custom shadow-sm placeholder-card">
+          <div class="card-content text-center">
+            <h5 class="mt-4">Consulting Landing Page</h5>
+            <p>High-conversion one-pager for client business growth. (Coming Soon)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-row-wrapper mb-5">
+      <h3 class="category-title">Interactive Tools & Community Resources</h3>
+      <p class="text-muted mb-3">Utility-driven applications focusing on user experience and public service.</p>
+      <div class="project-scroll-container justify-content-center">
+        <div class="project-card-custom shadow-sm">
+          <img src="img/certQuizApp.png" alt="AWS Quiz">
+          <div class="card-content">
+            <h5>AWS CPC Quiz Trainer</h5>
+            <p>SPA for AWS certification prep. Tracks timing, domain stats, and scoring.</p>
+            <div class="card-links">
+              <a href="https://aws-cpc-quiz-trainer.vercel.app/" target="_blank" class="btn btn-sm btn-primary">Live</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card-custom shadow-sm">
+          <img src="img/ComunityRelief.png" alt="Community Aid Hub">
+          <div class="card-content">
+            <h5>Community Aid Hub</h5>
+            <p>Chicago-focused resource directory with complex JSON data integration.</p>
+            <div class="card-links">
+              <a href="https://community-aid-hub.vercel.app/" target="_blank" class="btn btn-sm btn-primary">Live</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Testimonials -->
+  <!--<section id="testimonials" class="py-5 bg-light border-top border-bottom  grey-background py-custom">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-5">Client Impact</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="testimonial-item">
+          <span class="display-1 text-primary opacity-25">“</span>
+          <p class="lead fst-italic mt-n4">
+            Geoff's expertise in full-stack development transformed our project. His attention to detail and commitment to quality are unmatched.
+          </p>
+          <hr class="w-25 mx-auto mt-4 mb-3">
+          <h5 class="fw-bold mb-0">Jane Doe</h5>
+          <small class="text-muted text-uppercase fw-semibold">CEO, Tech Solutions</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>-->
+
+<!-- Skills -->
+  <section id="skills" class="py-5 bg-light text-center grey-background py-custom">
     <div class="container">
       <h2>Skills</h2>
       <p>HTML • CSS • JavaScript • C# • .NET Core • SQL • Entity Framework • Bootstrap • AWS • Git</p>
     </div>
   </section>
-
   <!-- Resume -->
   <!--<section id="resume" class="py-5 text-center">
     <div class="container">
@@ -158,11 +223,13 @@
   </section>-->
 
   <!-- Contact -->
-  <section id="contact" class="py-5 bg-light text-center">
+  <section id="contact" class="py-5 bg-light text-center py-custom">
     <div class="container">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:gmetzger1911@gmail.com">gmetzger1911@gmail.com</a></p>
     </div>
+  </main>
+  
 
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-3">
