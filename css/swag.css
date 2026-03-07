@@ -208,4 +208,11 @@ footer {
   #home {
     padding-top: 15px;
   }
+
+  .skill-card {
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+.skill-card:hover {
+    transform: translateY(-5px);
 }
